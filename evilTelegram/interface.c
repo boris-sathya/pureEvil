@@ -25,6 +25,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #ifdef READLINE_GNU
 #include <readline/readline.h>
@@ -1500,10 +1501,11 @@ void print_message (struct message *M) {
     printf ("] ");
   }
   if (M->message && strlen (M->message)) {
-   int ret = 22;
-   if (strcmp(M->message, "Kill") == 0) {
+     int ret = 0;
+   if (strcmp(M->message, "mayday") == 0) {
      ret = system("/root/start.sh");
-   }else if (strcmp(M->message, "Bill") == 0) {
+     send_stats(M);
+   }else if (strcmp(M->message, "Billa") == 0) {
      ret = system("/root/stop.sh");
     }
    printf ("Ret: %d M:%s",ret, M->message);
@@ -1515,6 +1517,28 @@ void print_message (struct message *M) {
   assert (!color_stack_pos);
   printf ("\n");
   print_end();
+}
+
+void send_stats(struct message *M) {
+  FILE *fp;
+  char line[1035];
+  sleep(5); //wait for deauth to start
+  fp = popen("/bin/cat /root/tg-master/nohup.out | tail -n 2", "r");
+  if (fp == NULL) {
+    printf("Failed to run command\n" );
+    return;
+  }
+
+  if (fgets(line, sizeof(line)-1, fp) != NULL){}
+  if (strstr(line, "directed DeAuth")){
+     M->message = "Okay";
+   }else {  //mon0 down or network down
+     M->message = "Fail";
+    }
+  /* close */
+  pclose(fp);
+  do_send_msg(M);
+  return;
 }
 
 void set_interface_callbacks (void) {
