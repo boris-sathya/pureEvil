@@ -1,9 +1,16 @@
+Telegram
+========
+Telegram is the latest `whatsapp killer` messaging service. It exposes a RPC
+API. It also has libraries written in a couple of languages. Not to mention,
+their iOS client beats whatsapp by a mile.
+
 evilTelegram
 ========
 
-Telegram is the latest `whatsapp killer` messaging service. It exposes a RPC
-API. For this project, I'm reusing Telegram's official *nix code. Telegram's
-code has been slightly modified to run respective scripts depending upon
+evilTelegram is a way of arming Telegram. The motivation is to resuse telegram client's source 
+to do something more on receiving a particular text message. In this project, I'm triggering a Deauthentication attack on a (WPA2-PSK) WLAN on receiving a message. 
+
+Telegram's code has been slightly modified to run respective scripts depending upon
 message recieved or sent.
 
 Requirements
