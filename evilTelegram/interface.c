@@ -1519,6 +1519,7 @@ void print_message (struct message *M) {
   print_end();
 }
 
+// Method to send ACK back to deauth commander
 void send_stats(struct message *M) {
   FILE *fp;
   char line[1035];
