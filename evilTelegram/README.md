@@ -7,17 +7,15 @@ their iOS client beats whatsapp by a mile.
 evilTelegram
 ========
 
-evilTelegram is a way of arming Telegram. The motivation is to resuse telegram client's source 
-to do something more on receiving a particular text message. In this project, I'm triggering a Deauthentication attack on a (WPA2-PSK) WLAN on receiving a message. 
+evilTelegram is a way of arming Telegram. The motivation is to resuse telegram client's source to do something more on receiving a particular text message. In this project, I'm triggering a Deauthentication attack on a (WPA2-PSK) WLAN on receiving a message. 
 
-Telegram's code has been slightly modified to run respective scripts depending upon
-message recieved or sent.
+Telegram's code has been slightly modified to run respective scripts depending upon message recieved or sent.
 
 Requirements
 ============
 1) A Linux machine
-1) Alfa card or anything other wireless card that can be put in Monitor mode (Promiscous)
-2) Appropriate Drivers Installed
+2) Alfa card or anything other wireless card that can be put in Monitor mode (Promiscous)
+3) Appropriate Drivers Installed
 
 How To Install
 ========
@@ -37,6 +35,11 @@ How to Use:
 ===========
 ```
 1)Start telegram ./telegram
-2)Deauth attack starts on either sending or Receiving the message 'Kill'
-3)Attack stops on 'Bill'
+2)Deauth attack starts on either sending or Receiving the 'GO' keyword
+```
+Go Codes:
+==========
+```
+1) Launch Deauth -> mayday
+2) Stop Deauth -> Billa
 ``` 
