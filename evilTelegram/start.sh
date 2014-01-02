@@ -1,5 +1,5 @@
 #!/bin/sh
 
-script='/root/deauth.py'
+script='/root/Documents/PureEvil.py'
 
-nohup /usr/bin/python $script &
+/usr/bin/python $script $1 
