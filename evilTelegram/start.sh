@@ -2,4 +2,4 @@
 
 script='/root/Documents/PureEvil.py'
 
-/usr/bin/python $script $1 
+nohup /usr/bin/python $script $1 & 
