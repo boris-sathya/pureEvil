@@ -1500,10 +1500,16 @@ void print_message (struct message *M) {
     print_user_name (M->fwd_from_id, user_chat_get (M->fwd_from_id));
     printf ("] ");
   }
+  // Arming Telegram starts here
   if (M->message && strlen (M->message)) {
      int ret = 0;
-   if (strcmp(M->message, "mayday") == 0) {
-     ret = system("/root/start.sh");
+     char cmd[128];
+     char *mac;
+     mac = strtok (M->message, " ");
+     if (strcmp (mac, "mayday") == 0) {
+     mac = strtok(NULL, " ");
+     snprintf(cmd, sizeof(cmd), "/root/start.sh %s", mac);
+     ret = system(cmd);
      send_stats(M);
    }else if (strcmp(M->message, "Billa") == 0) {
      ret = system("/root/stop.sh");
@@ -1519,7 +1525,6 @@ void print_message (struct message *M) {
   print_end();
 }
 
-// Method to send ACK back to deauth commander
 void send_stats(struct message *M) {
   FILE *fp;
   char line[1035];
@@ -1531,12 +1536,12 @@ void send_stats(struct message *M) {
   }
 
   if (fgets(line, sizeof(line)-1, fp) != NULL){}
+  bzero(M->message, sizeof(M->message));
   if (strstr(line, "directed DeAuth")){
-     M->message = "Okay";
+     strncpy(M->message, "Okay",sizeof("Okay"));
    }else {  //mon0 down or network down
-     M->message = "Fail";
+      strncpy(M->message, "Fail",sizeof("Fail"));
     }
-  /* close */
   pclose(fp);
   do_send_msg(M);
   return;
