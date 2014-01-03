@@ -10,7 +10,7 @@ shell scriptic version of Moriarity is evil and cunning.
 Moriarty, disconnects a target from a wireless LAN when they visit a target website. Yes, Moriarty is
 your one stop solution to prevent your roomate from watching pr0n.
 
-Teknikal Description
+Techical Description
 -------------------
 
 1. ARP Spoof the router and intercept traffic intended for victim
