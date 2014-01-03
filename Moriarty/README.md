@@ -36,5 +36,5 @@ Yeah, as simple as that. Make sure to change file paths according to your locati
 
 Credits
 --------
-Many thanks to [Niranjan][http://people.epfl.ch/niranjan.thanikachalam] for the **evil** idea.
+Many thanks to [Niranjan](http://people.epfl.ch/niranjan.thanikachalam) for the **evil** idea.
 Dedicated to BBC Sherlock Holmes Season 3 :)
