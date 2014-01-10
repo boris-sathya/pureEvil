@@ -30,6 +30,8 @@ How To
 --------
 ```
 Put wireless card on Monitor mode
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 1024
 sh ./Moriarty.sh
 ```
 Yeah, as simple as that. Make sure to change file paths according to your location.
