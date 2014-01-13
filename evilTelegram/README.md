@@ -15,6 +15,7 @@ Requirements
 ============
 1) A Linux machine
 2) Alfa card or anything other wireless card that can be put in Monitor mode (Promiscous)
+![Alfa Card](http://oneeyeddog.files.wordpress.com/2011/07/alfa-awuso36h1.jpg)
 3) Appropriate Drivers Installed
 
 How To Install
